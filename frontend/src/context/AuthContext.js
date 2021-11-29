@@ -48,10 +48,18 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  let logoutUser = () => {
+    setAuthTokens(null);
+    setUser(null);
+    localStorage.removeItem("authTokens");
+    history.push("/login");
+  };
+
   let contextData = {
     user: user,
     themeIsDark: themeIsDark,
     loginUser: loginUser,
+    logoutUser: logoutUser,
   };
   return (
     <AuthContext.Provider value={contextData}>{children}</AuthContext.Provider>
