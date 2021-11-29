@@ -1,4 +1,5 @@
 import { createContext, useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 
 const AuthContext = createContext();
@@ -6,9 +7,19 @@ const AuthContext = createContext();
 export default AuthContext;
 
 export const AuthProvider = ({ children }) => {
-  let [user, setUser] = useState(null);
+  let [user, setUser] = useState(() =>
+    localStorage.getItem("authTokens")
+      ? jwt_decode(localStorage.getItem("authTokens"))
+      : null
+  );
   let [themeIsDark, setThemeIsDark] = useState(false);
-  let [authTokens, setAuthTokens] = useState(null);
+  let [authTokens, setAuthTokens] = useState(() =>
+    localStorage.getItem("authTokens")
+      ? JSON.parse(localStorage.getItem("authTokens"))
+      : null
+  );
+
+  const history = useHistory();
 
   let loginUser = async (e) => {
     e.preventDefault();
@@ -30,11 +41,11 @@ export const AuthProvider = ({ children }) => {
     if (response.status === 200) {
       setAuthTokens(data);
       setUser(jwt_decode(data.access));
+      localStorage.setItem("authTokens", JSON.stringify(data));
+      history.push("/");
     } else {
       alert("Something went wrong");
     }
-    console.log("data:", data);
-    console.log("response:", response);
   };
 
   let contextData = {
