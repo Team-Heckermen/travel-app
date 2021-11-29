@@ -1,2 +1,5 @@
 # Virtual environment
 /backend/env
+
+# VSCode settings
+/.vscode
