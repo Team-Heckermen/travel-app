@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import AuthContext from "../context/AuthContext";
 
 const Navbar = () => {
-  let { name } = useContext(AuthContext);
+  let { user, authTokens } = useContext(AuthContext);
   return (
     <div>
       <Link to="/">Home</Link>
@@ -12,7 +12,7 @@ const Navbar = () => {
       <span> | </span>
       <Link to="/restricted">Restricted Page</Link>
 
-      <p>Hello, {name}</p>
+      {user && <p>Hello, {user.username}</p>}
     </div>
   );
 };
