@@ -7,6 +7,8 @@ const Navbar = () => {
       <Link to="/">Home</Link>
       <span> | </span>
       <Link to="/login">Login</Link>
+      <span> | </span>
+      <Link to="/restricted">Restricted Page</Link>
     </div>
   );
 };
