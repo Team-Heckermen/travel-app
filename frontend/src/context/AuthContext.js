@@ -7,6 +7,7 @@ export default AuthContext;
 
 export const AuthProvider = ({ children }) => {
   let [user, setUser] = useState(null);
+  let [themeIsDark, setThemeIsDark] = useState(false);
   let [authTokens, setAuthTokens] = useState(null);
 
   let loginUser = async (e) => {
@@ -38,6 +39,7 @@ export const AuthProvider = ({ children }) => {
 
   let contextData = {
     user: user,
+    themeIsDark: themeIsDark,
     loginUser: loginUser,
   };
   return (
