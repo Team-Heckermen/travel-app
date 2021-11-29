@@ -8,7 +8,9 @@ const Navbar = () => {
     <div>
       <Link to="/">Home</Link>
       <span> | </span>
-      <Link to="/login">Login</Link>
+
+      {user ? <p>Logout</p> : <Link to="/login">Login</Link>}
+
       <span> | </span>
       <Link to="/restricted">Restricted Page</Link>
 
