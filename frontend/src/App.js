@@ -5,7 +5,7 @@ import { AuthProvider } from "./context/AuthContext";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
-import RestrictedPage from "./pages/RestrictedPage";
+import error_404 from "./pages/error403";
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
           <Route component={Home} exact path="/" />
           <Route component={Login} exact path="/login" />
           <RestrictedRoute
-            component={RestrictedPage}
+            component={error_404}
             exact
             path="/restricted"
           />
