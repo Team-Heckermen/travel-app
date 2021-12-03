@@ -67,7 +67,7 @@ export const AuthProvider = ({ children }) => {
       },
 
       body: JSON.stringify({
-        refresh: authTokens.refresh,
+        refresh: authTokens?.refresh,
       }),
     });
 
@@ -76,8 +76,13 @@ export const AuthProvider = ({ children }) => {
     if (response.status === 200) {
       setAuthTokens(data);
       setUser(jwt_decode(data.access));
+      localStorage.setItem("authTokens", JSON.stringify(data));
     } else {
       logoutUser();
+    }
+
+    if (loading) {
+      setLoading(false);
     }
   };
 
@@ -89,6 +94,10 @@ export const AuthProvider = ({ children }) => {
   };
 
   useEffect(() => {
+    if (loading) {
+      updateToken();
+    }
+
     let time = 1000 * 60 * 4; // 4 mins
     let interval = setInterval(() => {
       if (authTokens) {
@@ -100,6 +109,8 @@ export const AuthProvider = ({ children }) => {
   }, [authTokens, loading]);
 
   return (
-    <AuthContext.Provider value={contextData}>{children}</AuthContext.Provider>
+    <AuthContext.Provider value={contextData}>
+      {loading ? null : children}
+    </AuthContext.Provider>
   );
 };
