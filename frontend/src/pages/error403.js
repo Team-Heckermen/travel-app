@@ -1,8 +1,8 @@
 import React from "react";
-import DarkMessage from "../assets/images/dark-mode/404page.png";
-import LightMessage from "../assets/images/light-mode/404page.png";
+import DarkMessage from "../assets/images/dark-mode/403page.png";
+import LightMessage from "../assets/images/light-mode/403page.png";
 
-const error_404 = () => {
+const error_403 = () => {
   if(true)
   {
     var Message = DarkMessage;
@@ -27,5 +27,4 @@ const error_404 = () => {
     </div>
   );
 };
-
-export default error_404;
+export default error_403;
