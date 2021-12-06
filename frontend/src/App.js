@@ -5,7 +5,6 @@ import { AuthProvider } from "./context/AuthContext";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
-import error_403 from "./pages/error403";
 
 function App() {
   return (
@@ -15,11 +14,11 @@ function App() {
           <Navbar />
           <Route component={Home} exact path="/" />
           <Route component={Login} exact path="/login" />
-          <RestrictedRoute
+          {/* <RestrictedRoute
             component={error_403}
             exact
             path="/restricted"
-          />
+          /> */}
         </AuthProvider>
       </Router>
     </div>
