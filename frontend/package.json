@@ -37,10 +37,13 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+<<<<<<< HEAD
   },
   "devDependencies": {
     "autoprefixer": "^9.8.8",
     "postcss": "^7.0.39",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17"
+=======
+>>>>>>> parent of e93715d (tailwind setup)
   }
 }
