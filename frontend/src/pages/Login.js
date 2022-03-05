@@ -34,7 +34,7 @@ const Login = () => {
               </button>
               <Link
                 to="/reset-password"
-                className="text-sm hover:text-blue-500 "
+                className="text-sm hover:text-blue-500"
               >
                 Forgot password?
               </Link>

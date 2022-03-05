@@ -16,15 +16,16 @@ import LightModeIcon from "../assets/images/light-mode/light-mode.png";
 import AuthContext from "../context/AuthContext";
 
 const Navbar = () => {
-  let { user, logoutUser } = useContext(AuthContext);
-  var DarkMode = false;
+  let { user, logoutUser, themeIsDark, setThemeIsDark } = useContext(AuthContext);
 
-  if(DarkMode)
+  if(themeIsDark)
   {
     var Logo = DarkLogo;
     var Search = DarkSearch;
     var ModeIcon = DarkModeIcon;
     var DefaultUserImg = DarkUserimg;
+    document.documentElement.style.setProperty('--main','#15202b');
+    document.documentElement.style.setProperty('--antimain','white');
   }
   else
   {
@@ -32,6 +33,8 @@ const Navbar = () => {
     var Search = LightSearch;
     var ModeIcon = LightModeIcon;
     var DefaultUserImg = lightUserimg;
+    document.documentElement.style.setProperty('--main','white');
+    document.documentElement.style.setProperty('--antimain','#15202b');
   }
 
   const guestLinks = () => (
@@ -87,9 +90,8 @@ const Navbar = () => {
             </div>
           </div>
         </div>
-        <Link to="/restricted">Restricted Page</Link>
         <div className=" flex-grow mr-4">
-          <img src={ModeIcon} className="w-8 h-8 float-right"/>
+            <button className="w-8 h-8 float-right" onClick={setThemeIsDark}><img src={ModeIcon} className="w-8 h-8 float-right"/></button>
         </div>
         <div className="pr-3 md:block hidden">
           {user ? authLinks() : guestLinks()}
