@@ -58,18 +58,15 @@ body{
 }
 
 .underline-btn {
+  @apply rounded-lg px-4;
+  background-color: var(--main);
+  color: var(--antimain);
+  margin-top: 13px;
   transition: all ease-in-out 250ms;
 }
 
 .underline-btn:hover::after {
   width: 100%;
-}
-
-.underline-btn {
-  @apply rounded-lg px-4;
-  background-color: var(--main);
-  color: var(--antimain);
-  margin-top: 13px;
 }
 
 .underline-btn::after {
