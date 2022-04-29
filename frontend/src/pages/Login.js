@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import AuthContext from "../context/AuthContext";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   let { loginUser } = useContext(AuthContext);
@@ -16,7 +17,6 @@ const Login = () => {
               placeholder="example@email.com"
               className="sign-in-input"
               name="email"
-              value={email}
               required
             />
             <label className="block mt-3 font-semibold">Password</label>
@@ -25,7 +25,6 @@ const Login = () => {
               placeholder="password123"
               className="sign-in-input"
               name="password"
-              value={password}
               minLength="7"
               required
             />
@@ -35,7 +34,7 @@ const Login = () => {
               </button>
               <Link
                 to="/reset-password"
-                className="text-sm hover:text-blue-500 "
+                className="text-sm hover:text-blue-500"
               >
                 Forgot password?
               </Link>

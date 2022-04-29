@@ -89,6 +89,7 @@ export const AuthProvider = ({ children }) => {
   let contextData = {
     user: user,
     themeIsDark: themeIsDark,
+    setThemeIsDark: setThemeIsDark,
     loginUser: loginUser,
     logoutUser: logoutUser,
   };
