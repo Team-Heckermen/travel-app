@@ -17,6 +17,17 @@ import AuthContext from "../context/AuthContext";
 
 const Navbar = () => {
   let { user, logoutUser, themeIsDark, setThemeIsDark } = useContext(AuthContext);
+  function setTheme()
+  {
+    if(themeIsDark)
+    {
+      setThemeIsDark(false);
+    }
+    else
+    {
+      setThemeIsDark(true);
+    }
+  }
 
   if(themeIsDark)
   {
@@ -26,6 +37,7 @@ const Navbar = () => {
     var DefaultUserImg = DarkUserimg;
     document.documentElement.style.setProperty('--main','#15202b');
     document.documentElement.style.setProperty('--antimain','white');
+    document.documentElement.style.setProperty('--gradient','#60A5FA');
   }
   else
   {
@@ -35,6 +47,7 @@ const Navbar = () => {
     var DefaultUserImg = lightUserimg;
     document.documentElement.style.setProperty('--main','white');
     document.documentElement.style.setProperty('--antimain','#15202b');
+    document.documentElement.style.setProperty('--gradient','#e10032');
   }
 
   const guestLinks = () => (
@@ -91,7 +104,7 @@ const Navbar = () => {
           </div>
         </div>
         <div className=" flex-grow mr-4">
-            <button className="w-8 h-8 float-right" onClick={setThemeIsDark}><img src={ModeIcon} className="w-8 h-8 float-right"/></button>
+            <button className="w-8 h-8 float-right" onClick={setTheme}><img src={ModeIcon} className="w-8 h-8 float-right"/></button>
         </div>
         <div className="pr-3 md:block hidden">
           {user ? authLinks() : guestLinks()}
