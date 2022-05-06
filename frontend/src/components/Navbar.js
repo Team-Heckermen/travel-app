@@ -29,22 +29,24 @@ const Navbar = () => {
     }
   }
 
+  var Logo, Search, ModeIcon, DefaultUserImg; 
+
   if(themeIsDark)
   {
-    var Logo = DarkLogo;
-    var Search = DarkSearch;
-    var ModeIcon = DarkModeIcon;
-    var DefaultUserImg = DarkUserimg;
+    Logo = DarkLogo;
+    Search = DarkSearch;
+    ModeIcon = DarkModeIcon;
+    DefaultUserImg = DarkUserimg;
     document.documentElement.style.setProperty('--main','#15202b');
     document.documentElement.style.setProperty('--antimain','white');
     document.documentElement.style.setProperty('--gradient','#60A5FA');
   }
   else
   {
-    var Logo = LightLogo;
-    var Search = LightSearch;
-    var ModeIcon = LightModeIcon;
-    var DefaultUserImg = lightUserimg;
+    Logo = LightLogo;
+    Search = LightSearch;
+    ModeIcon = LightModeIcon;
+    DefaultUserImg = lightUserimg;
     document.documentElement.style.setProperty('--main','white');
     document.documentElement.style.setProperty('--antimain','#15202b');
     document.documentElement.style.setProperty('--gradient','#e10032');
@@ -78,7 +80,7 @@ const Navbar = () => {
         {/* Logo, home, discussion and settings button */}
         <div className="flex items-center">
           <Link to="/" className="ml-3">
-            <img src={Logo} className="ml-4 w-11 mr-0" />
+            <img src={Logo} className="ml-4 w-11 mr-0" alt="" />
           </Link>
           <div className="pr-8 md:block hidden mx-5">
             <Link className="navbar-link" to="/">
@@ -98,13 +100,13 @@ const Navbar = () => {
             />
             <div className="p-2 py-0">
               <button className="navbar-search-btn">
-                <img src={Search} height="100%" width="100%" />
+                <img src={Search} height="100%" width="100%" alt="" />
               </button>
             </div>
           </div>
         </div>
         <div className=" flex-grow mr-4">
-            <button className="w-8 h-8 float-right" onClick={setTheme}><img src={ModeIcon} className="w-8 h-8 float-right"/></button>
+            <button className="w-8 h-8 float-right" onClick={setTheme}><img src={ModeIcon} className="w-8 h-8 float-right" alt="" /></button>
         </div>
         <div className="pr-3 md:block hidden">
           {user ? authLinks() : guestLinks()}
