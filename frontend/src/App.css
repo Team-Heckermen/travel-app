@@ -1,8 +1,17 @@
+.heading_font {
+  font-family: 'Bebas Neue', cursive;
+}
+
 :root {
   --gradient: #e10032;
   --main: black;
   --antimain: white;
 }
+
+span{
+  color: var(--gradient);
+}
+
 body{
   background-color: var(--main);
   color: var(--antimain);
