@@ -29,10 +29,11 @@ const Navbar = () => {
     }
   }
 
-  var Logo, Search, ModeIcon, DefaultUserImg; 
+  var Logo, Search, ModeIcon, DefaultUserImg, SmScreenColor; 
 
   if(themeIsDark)
   {
+    SmScreenColor = "white";
     Logo = DarkLogo;
     Search = DarkSearch;
     ModeIcon = DarkModeIcon;
@@ -43,6 +44,7 @@ const Navbar = () => {
   }
   else
   {
+    SmScreenColor = "currentColor";
     Logo = LightLogo;
     Search = LightSearch;
     ModeIcon = LightModeIcon;
@@ -116,7 +118,7 @@ const Navbar = () => {
           <svg
             className="w-6 h-6"
             fill="none"
-            stroke="currentColor"
+            stroke={SmScreenColor}
             viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg"
           >
