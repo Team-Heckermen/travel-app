@@ -2,6 +2,10 @@
   font-family: 'Bebas Neue', cursive;
 }
 
+.body_font {
+  font-family: 'Open Sans', sans-serif;
+}
+
 :root {
   --gradient: #e10032;
   --main: black;

@@ -2,9 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import main_img from "../assets/images/home page/home_page_main.png";
-import s1_img from "../assets/images/home page/home_page_s1.png";
-import s2_img from "../assets/images/home page/home_page_s2.png";
-import s3_img from "../assets/images/home page/home_page_s3.png";
+import s1_img from "../assets/images/home page/home_page_s1.jpg";
+import s2_img from "../assets/images/home page/home_page_s2.jpg";
+import s3_img from "../assets/images/home page/home_page_s3.jpg";
 
 const Home = () => {
   return (
@@ -18,25 +18,25 @@ const Home = () => {
         <img src={main_img} className="rounded-lg md:w-47.5% mb-6" alt="" />
       </div>
       <hr className="mb-6 mx-auto w-95%"/>
-      <div>
+      <div className="md:flex mb-6">
 
-        <div className="">
-          <img src={s1_img} className="" alt="" />
-          <p>Get to know the latest events near you</p>
+        <div className="w-100% md:w-22% md:mr-4%">
+          <img src={s1_img} className="w-100% rounded-lg" alt="" />
+          <p className="mt-2 mb-5 md:mt-0 md:mb-0 body_font text-center">Get to know the <span>latest events</span> near you.</p>
         </div>
         
-        <div>
-          <img src={s2_img} className="" alt="" />
-          <p>discover according to your preference</p>
+        <div className="w-100% md:w-22% md:mr-4%">
+          <img src={s2_img} className="w-100% rounded-lg" alt="" />
+          <p className="mt-2 mb-5 md:mt-0 md:mb-0 body_font text-center">discover according to <span>your preference.</span></p>
         </div>
         
-        <div>
-          <img src={s3_img} className="" alt="" />
-          <p>Get rid of the hassle of finding places to visit</p>
+        <div className="w-100% md:w-22% md:mr-4%">
+          <img src={s3_img} className="w-100% rounded-lg" alt="" />
+          <p className="mt-2 mb-6 md:mt-0 md:mb-0 body_font text-center">Get <span>rid</span> of the <span>hassle</span> of finding <span>places</span> to visit.</p>
         </div>
 
-        <div>
-          <h2 className="heading_font">All this and more, for FREE!</h2>
+        <div className="w-100% md:w-22%">
+          <h2 className=" heading_font text-6xl md:text-right text-center">ALL THIS AND MORE, FOR <span>FREE!</span></h2>
         </div>
       
       </div>
