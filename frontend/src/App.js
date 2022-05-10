@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import RestrictedRoute from "./utils/RestrictedRoute";
 import { AuthProvider } from "./context/AuthContext";
 import Navbar from "./components/Navbar";
@@ -13,14 +13,16 @@ function App() {
       <Router>
         <AuthProvider>
           <Navbar />
-          <Route component={Home} exact path="/" />
-          <Route component={Login} exact path="/login" />
-          {/* <RestrictedRoute
+          <Switch>
+            <Route component={Home} exact path="/" />
+            <Route component={Login} exact path="/login" />
+            {/* <RestrictedRoute
             component={error_403}
             exact
             path="/restricted"
           /> */}
-          <Route path="*" component={PageNotFound} />
+            <Route component={PageNotFound} />
+          </Switch>
         </AuthProvider>
       </Router>
     </div>
