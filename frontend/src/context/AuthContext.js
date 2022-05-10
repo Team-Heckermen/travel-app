@@ -57,6 +57,13 @@ export const AuthProvider = ({ children }) => {
     history.push("/login");
   };
 
+  // do this when there's no new token
+  let tokenUpdateFailed = () => {
+    setAuthTokens(null);
+    setUser(null);
+    localStorage.removeItem("authTokens");
+  };
+
   let updateToken = async () => {
     console.log("update token called");
     let response = await fetch("http://127.0.0.1:8000/api/token/refresh/", {
@@ -74,7 +81,7 @@ export const AuthProvider = ({ children }) => {
       setUser(jwt_decode(data.access));
       localStorage.setItem("authTokens", JSON.stringify(data));
     } else {
-      logoutUser();
+      tokenUpdateFailed();
     }
 
     if (loading) {
