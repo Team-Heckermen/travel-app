@@ -14,7 +14,7 @@ const Home = () => {
           <h1 className="md:w-95% heading_font text-4xl md:text-6xl mb-2">
             <span>PLAN</span> YOUR NEXT <span>OUTING</span> WITH EASE
           </h1>
-          <p className="w-95% mb-4 text-xl md:  text-2xl">
+          <p className="w-95% mb-4 text-xl md:text-2xl">
             No matter if it is an <span>friendly</span> outing,{" "}
             <span>corporate</span>, or a <span>family</span> one, we got you
             covered.
