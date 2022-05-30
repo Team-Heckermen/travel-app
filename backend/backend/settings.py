@@ -43,8 +43,6 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt.token_blacklist',
     'corsheaders',
     'base.apps.BaseConfig',
-    'allauth',
-    'allauth.account',
     'rest_framework.authtoken',
 ]
 
@@ -58,14 +56,14 @@ REST_FRAMEWORK = {
     )
 }
 
+AUTH_USER_MODEL = 'base.User'
+
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-AUTHENTICATION_METHOD = 'email'
-ACCOUNT_AUTHENTICATION_METHOD = 'email'
-ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 1
-ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_EMAIL_VERIFICATION = "mandatory"
-ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 5
-ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT = 86400 # 1 day in seconds
+
+# ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 1
+# ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+# ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 5
+# ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT = 86400 # 1 day in seconds
 
 # email id info
 EMAIL_HOST = 'smtp.gmail.com'

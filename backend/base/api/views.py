@@ -1,5 +1,6 @@
 from django.http import JsonResponse
-from django.contrib.auth.models import User
+from django.conf import settings
+from base.models import User
 from django.contrib.sites.shortcuts import get_current_site
 from django.urls import reverse
 
@@ -13,6 +14,8 @@ from rest_framework.decorators import api_view
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from rest_framework_simplejwt.views import TokenObtainPairView
 from rest_framework_simplejwt.tokens import RefreshToken
+
+import jwt
 
 
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
@@ -71,5 +74,10 @@ class RegisterView(generics.CreateAPIView):
         return Response(user_data, status=status.HTTP_201_CREATED)
 
 class VerifyEmail(generics.GenericAPIView):
-    def get(self, request, *args, **kwargs):
-        pass
+    def get(self, request):
+        token = request.GET.get('token')
+        try:
+            payload = jwt.decode(token, settings.SECRET_KEY, algorithms=['HS256'])
+            user = User.objects.get(id=payload['user_id'])
+        except:
+            pass
