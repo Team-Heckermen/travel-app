@@ -10,6 +10,7 @@ from .utils import Util
 from rest_framework import generics, status
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
+from rest_framework.exceptions import AuthenticationFailed
 
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from rest_framework_simplejwt.views import TokenObtainPairView
@@ -27,8 +28,10 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
         token['username'] = user.username
         # ...
 
-        return token
+        if not user.is_verified:
+            raise AuthenticationFailed({"status":"fail", "message":"email is not verified"})
 
+        return token
 
 class MyTokenObtainPairView(TokenObtainPairView):
     serializer_class = MyTokenObtainPairSerializer
